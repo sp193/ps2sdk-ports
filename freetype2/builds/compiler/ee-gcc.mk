@@ -63,12 +63,12 @@ T := -o$(space)
 #   ANSI compliance.
 #
 ifndef CFLAGS
-  CFLAGS := -c -g -O2 -G0 -Wall -I$(EE)/include -I$(PS2SDK)/common/include -I$(PS2SDK)/ee/include
+  CFLAGS := $(EE_CFLAGS) $(EE_INCS) -c 
 endif
 
 # ANSIFLAGS: Put there the flags used to make your compiler ANSI-compliant.
 #
-ANSIFLAGS := -ansi -pedantic
+#ANSIFLAGS := -ansi -pedantic
 
 
 # Library linking
