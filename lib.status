@@ -32,10 +32,6 @@ libconfig-1.4.5:
 	all is working
 libmikmod:
 	depends on gsKit
-	sample failed
-ld.exe: ../lib\libmikmod.a(freesd_irx.o): ABI is incompatible with that of the selected emulation
-ld.exe: ../lib\libmikmod.a(audsrv_irx.o): ABI is incompatible with that of the selected emulation
-
 lua:
 	sample failed
 liblualib.a(loslib.o): In function `os_rename':
@@ -52,9 +48,12 @@ ucl:
 stlport:
 	produces errors
 sdl, sdlgfx, sdlimage, sdlmixer, sdlttf
-	every sample failed
-ld.exe: ../lib\libsdl.a(audsrv_irx.o): ABI is incompatible with that of the selected emulation
+	everything is working
 sdl:
 	depends on gsKit
 sdlgfx, sdlimage, sdlmixer, sdlttf:
-	depends on sdl and gsKit
+	depends on sdl
+sdlgfx:
+	depends on sdlimage
+sdlttf:
+	depends on Freetype2

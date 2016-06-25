@@ -45,11 +45,11 @@ install: all
 
 sample: all
 
-isjpcm.s:
-	bin2s $(PS2DEV)/isjpcm/bin/isjpcm.irx isjpcm.s isjpcm_irx
+isjpcm.c:
+	bin2c $(PS2DEV)/isjpcm/bin/isjpcm.irx isjpcm.c isjpcm_irx
 
 clean:
-	rm -f -r $(EE_OBJS_DIR) $(EE_BIN_DIR) isjpcm.s
+	rm -f -r $(EE_OBJS_DIR) $(EE_BIN_DIR) isjpcm.c
 
 include $(PS2SDK)/Defs.make
 include ../../../Makefile.eeglobal
