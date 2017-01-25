@@ -75,17 +75,17 @@ install: all
 	cp $(EE_LIBMIKMOD) $(DESTDIR)$(PS2SDK)/ports/lib
 
 clean:
-	rm -f -r $(EE_OBJS) $(EE_LIB_DIR) drivers/freesd_irx.s drivers/audsrv_irx.s
+	rm -f -r $(EE_OBJS) $(EE_LIB_DIR) drivers/freesd_irx.c drivers/audsrv_irx.c
 	make -f Makefile.sample clean
 
 # inline
 
 ifeq ($(USE_FREESD), 1)
-drivers/freesd_irx.s: $(PS2SDK)/iop/irx/freesd.irx
-	$(PS2SDK)/bin/bin2s $< $@ freesd_irx
+drivers/freesd_irx.c: $(PS2SDK)/iop/irx/freesd.irx
+	$(PS2SDK)/bin/bin2c $< $@ freesd_irx
 endif
-drivers/audsrv_irx.s : $(PS2SDK)/iop/irx/audsrv.irx
-	$(PS2SDK)/bin/bin2s $< $@ audsrv_irx
+drivers/audsrv_irx.c : $(PS2SDK)/iop/irx/audsrv.irx
+	$(PS2SDK)/bin/bin2c $< $@ audsrv_irx
 
 include $(PS2SDK)/Defs.make
 include ../Makefile.eeglobal

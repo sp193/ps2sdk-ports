@@ -16,6 +16,7 @@ install: all
 sample:
 
 clean:
+	cp -fr builds $(SOURCE_DIR)
 	cd $(SOURCE_DIR) && make clean
 	rm -f $(SOURCE_DIR)/objs/$(EE_LIB)
 	rm -rf $(SOURCE_DIR)/builds/ps2

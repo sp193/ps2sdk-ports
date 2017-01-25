@@ -19,13 +19,14 @@ SUBDIRS += expat
 SUBDIRS += libconfig-1.4.5
 SUBDIRS += libmikmod
 SUBDIRS += madplay
-SUBDIRS += lua
 SUBDIRS += sdl
 SUBDIRS += sdlgfx
 SUBDIRS += sdlimage
 SUBDIRS += sdlmixer
 SUBDIRS += sdlttf
 SUBDIRS += aalib
+SUBDIRS += ode
+SUBDIRS += lua
 # SUBDIRS += romfs #tools only works under linux
 # SUBDIRS += ode #doesnt work
 # SUBDIRS += stlport #doesnt work on 5.3.0
@@ -46,3 +47,8 @@ install: $(patsubst %, _installdir_%, $(SUBDIRS))
 
 $(patsubst %, _installdir_%, $(SUBDIRS)):
 	$(MAKE) -C $(patsubst _installdir_%, %, $@) install
+
+sample: $(patsubst %, _sampledir_%, $(SUBDIRS))
+
+$(patsubst %, _sampledir_%, $(SUBDIRS)):
+	$(MAKE) -C $(patsubst _sampledir_%, %, $@) sample

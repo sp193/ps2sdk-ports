@@ -33,7 +33,7 @@ $(EE_OBJS_DIR)%.o : $(SOURCE_DIR)%.c
 $(TEST_BIN) : $(TEST_OBJS) $(PS2SDK)/ee/startup/crt0.o
 	$(EE_CC) -T$(PS2SDK)/ee/startup/linkfile $(TEST_CFLAGS) \
 		-o $(TEST_BIN) $(PS2SDK)/ee/startup/crt0.o $(TEST_OBJS) $(TEST_LDFLAGS) $(TEST_LIBS)
-	gzip -k -f -c --best example.c > foo.gz
+	gzip -f -c --best example.o > foo.gz
 
 install: all
 	mkdir -p $(DESTDIR)$(PS2SDK)/ports/include
@@ -42,8 +42,7 @@ install: all
 	cp -f $(SOURCE_DIR)zlib.h $(DESTDIR)$(PS2SDK)/ports/include
 	cp -f $(SOURCE_DIR)zconf.h $(DESTDIR)$(PS2SDK)/ports/include
 
-sample: all
-	$(TEST_BIN)
+sample: all $(TEST_BIN)
 	
 clean:
 	rm -f -r $(EE_OBJS_DIR) $(EE_LIB_DIR) $(TEST_OBJS) $(TEST_BIN) foo.gz

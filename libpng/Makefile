@@ -50,8 +50,7 @@ install: all
 	cp -f $(SOURCE_DIR)pngconf.h $(DESTDIR)$(PS2SDK)/ports/include
 	cp -f $(SOURCE_DIR)pnglibconf.h $(DESTDIR)$(PS2SDK)/ports/include
 
-sample: all
-	$(TEST_BIN)
+sample: all $(TEST_BIN)
 	
 clean:
 	rm -f -r $(SOURCE_DIR)pnglibconf.* $(SOURCE_DIR)pngusr.h $(EE_OBJS_DIR) $(EE_LIB_DIR) $(TEST_BIN) $(TEST_OBJS) pngtest.png pngout.png
